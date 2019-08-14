@@ -1,0 +1,16 @@
+---
+layout: page
+title: About
+numberofcols: 3
+---
+{% assign pages = site.url |  append:  '/' | append: site.baseurl | append: '/portfolio' %}
+
+{% include component/intro.html %}
+<h2>Teams {{ site.teams.title }}</h2>
+{% include component/teams.html %}
+<h2>Services {{ site.services.title }}</h2>
+{% include component/services.html %}
+<h2>Customers {{ site.customers.title }}</h2>
+{% include component/customers.html %}
+<h2>Portfolio {{ site.portfolio.title }}</h2>
+{% include component/portfolio.html %}

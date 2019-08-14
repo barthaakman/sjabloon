@@ -1,4 +1,68 @@
-title: Jekyll Bootstrap
+# Site
+title: 'Bootstrap Jekyll Experiment'
+description: 'Een experiment met Bootstrap en Jekyll'
+baseurl: ''
+
+include: ["_pages"]
+# permalink: /:title/
+
+# Plugins
+plugins: 
+ - jekyll-sitemap
+ - jekyll-paginate
+ - jekyll-seo-tag
+ - jekyll-feed
+ - jekyll-include-cache
+ 
+# Defaults
+defaults:
+
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+
+# Collections
+collections_dir: collections
+collections:
+  services:
+    title: "Services"
+    output: true # store output files for each item under the collections folder
+
+  teams:
+    title: "Teams"
+    output: true
+
+  pages:
+    title: "Pages"
+    output: true
+
+  customers:
+    title: "Customers"
+    output: true
+
+  portfolio:
+    title: "Portfolio"
+    output: true
+
+# Syntax
+markdown: kramdown
+highlighter: rouge
+
+# Pagination
+#paginate: 20
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+
+# Sass
 sass:
-  sass_dir: css
-  style:    compressed
+    sass_dir: /css
+    style:    compressed
