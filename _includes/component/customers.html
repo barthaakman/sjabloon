@@ -1,9 +1,26 @@
 {% assign images = site.url |  append:  '/' | append: site.baseurl | append: '/assets/img/customers' %}
 
+
 <div class="row">
-    {% for item in site.customers %}
-        <div class="col-lg-2 col-sm-4 mb-4">
-            <img class="img-fluid" src="{{ images }}/{{ item.img }}" alt="">
+    <div class="col-lg-3 mb-3">
+        {{ site.customers.title }}
+    </div>
+</div>
+
+<div class="row">
+{% for item in site.customers %}
+<div class="col-lg-3 mb-3">
+    <div class="card h-100 text-center">
+        <img class="card-img-top" src="{{ images }}/{{ item.img }}" alt="">
+        <div class="card-body">
+            <h4 class="card-title">{{ item.title }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ item.subtitle }}</h6>
+            <p class="card-text">{{ item.text | markdownify }}</p>
         </div>
-    {% endfor %}
+        <div class="card-footer">
+            <a href="#">{{ item.footer }}</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
 </div>
