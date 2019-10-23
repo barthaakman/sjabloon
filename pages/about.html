@@ -2,6 +2,7 @@
 layout: page
 title: About
 numberofcols: 3
+carousel-source: 
 ---
 {% assign pages = site.url |  append:  '/' | append: site.baseurl | append: '/portfolio' %}
 
@@ -12,5 +13,7 @@ numberofcols: 3
 {% include component/services.html %}
 <h2>Customers {{ site.customers.title }}</h2>
 {% include component/customers.html %}
+<h2>Portfolio {{ site.portfolio.title }}</h2>
+{% include component/portfolio.html %}
 <h2>Portfolio {{ site.portfolio.title }}</h2>
 {% include component/portfolio.html %}

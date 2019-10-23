@@ -1,3 +1,13 @@
+{% assign images = site.url |  append:  '/' | append: site.baseurl | append: '/assets/img/carousels' %}
+
+<!---
+
+---
+carousel-source: 
+---
+
+-->
+
 <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -7,27 +17,24 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <!-- Slide 1 -->
-            <div class="carousel-item active" style="background-image: url('{{site.url}}/{{site.baseurl}}/assets/img/slider/1.jpg')">
-
+            {% assign first = {{ page.carousel-source }} | first %}
+            {% for i in first %}
+            <div class="carousel-item active" style="background-image: url('{{ images }}/{{ item.img }}')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>First Slide</h3>
-                    <p>This is a description for the first slide.</p>
+                    <h3>{{ page.header }}</h3>
+                    <p>{{ page.caption }}</p>
                 </div>
             </div>
-            <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url('{{site.url}}/{{site.baseurl}}/assets/img/slider/2.jpg')">
+            {% endfor %}
+            <!-- Slide 2 to n-->
+            {% for item in {{ page.carousel-source }} offset:1 %}
+            <div class="carousel-item" style="background-image: url('{{ images }}/{{ item.img }}')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Second Slide</h3>
-                    <p>This is a description for the second slide.</p>
+                    <h3>{{ page.header }}</h3>
+                    <p>{{ page.caption }}</p>
                 </div>
             </div>
-            <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url('{{site.url}}/{{site.baseurl}}/assets/img/slider/3.jpg')">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>3</h3>
-                    <p>This is a description for the third slide.</p>
-                </div>
-            </div>
+            {% endfor %}
 
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
