@@ -1,48 +1,46 @@
 {% assign images = site.url |  append:  '/' | append: site.baseurl | append: '/assets/img/carousels' %}
 
-<!---
+<div class="row">
 
----
-carousel-source: 
----
-
--->
-
-<header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <!-- Slide 1 -->
-            {% assign first = {{ page.carousel-source }} | first %}
-            {% for i in first %}
-            <div class="carousel-item active" style="background-image: url('{{ images }}/{{ item.img }}')">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>{{ page.header }}</h3>
-                    <p>{{ page.caption }}</p>
+        <div id="{{ include.name }}" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for picture in include.data %}
+                {% if forloop.first == true %}
+                <li data-target="#{{ include.name }}" data-slide-to="0" class="active"></li>
+                {% else %}
+                <li data-target="#{{ include.name }}" data-slide-to="{{ forloop.index0 }}"></li>
+                {% endif %}
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide 1 -->
+                {% for picture in include.data %}
+                {% if forloop.first == true %}
+                <div class="carousel-item active" style="background-image: url('{{ images }}/{{ picture.img }}')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>{{ picture.header }}</h3>
+                        <p>{{ picture.caption }}</p>
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
-            <!-- Slide 2 to n-->
-            {% for item in {{ page.carousel-source }} offset:1 %}
-            <div class="carousel-item" style="background-image: url('{{ images }}/{{ item.img }}')">
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>{{ page.header }}</h3>
-                    <p>{{ page.caption }}</p>
+                <!-- Slide 2 to n -->
+                {% else %}
+                <div class="carousel-item" style="background-image: url('{{ images }}/{{ picture.img }}')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>{{ picture.header }}</h3>
+                        <p>{{ picture.caption }}</p>
+                    </div>
                 </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endfor %}
+            <a class="carousel-control-prev" href="#carousel-indicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-indicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
 
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</header>
+</div>

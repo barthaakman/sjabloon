@@ -12,6 +12,7 @@ plugins:
  - jekyll-paginate
  - jekyll-seo-tag
  - jekyll-include-cache
+ - jekyll-feed
  
 # Defaults
 defaults:
