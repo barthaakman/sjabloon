@@ -15,7 +15,23 @@ footer {
     margin-top: 20px;
 }
 
-portfolio-item {
+.portfolio-item {
     padding-bottom: 15px;
 }
 
+.carousel-inner .carousel-item img {
+    height: 100%;
+    width: 98%;
+    max-height: 500px;
+    max-width: 97%;
+    object-fit: cover;
+}
+
+.carousel {
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.item {
+    overflow: hidden;
+}

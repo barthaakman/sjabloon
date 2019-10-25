@@ -5,15 +5,14 @@ numberofcols: 3
 ---
 {% assign pages = site.url |  append:  '/' | append: site.baseurl | append: '/portfolio' %}
 
-{% include component/intro.html %}
+{% include intro.html %}
 <h2>Carousel</h2>
-{% include carousel.html name="carousel-about" data="site.data.carousel-about" %}
+{% include carousel.html name="carousel-about" data=site.data.carousel-about %}
 <h2>Teams {{ site.teams.title }}</h2>
-{% include component/teams.html %}
+{% include teams.html %}
 <h2>Services {{ site.services.title }}</h2>
-{% include component/services.html %}
+{% include services.html %}
 <h2>Customers {{ site.customers.title }}</h2>
-{% include component/customers.html %}
+{% include customers.html %}
 <h2>Portfolio {{ site.portfolio.title }}</h2>
-{% include component/portfolio.html %}
-
+{% include portfolio.html %}
