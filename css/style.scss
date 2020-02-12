@@ -21,7 +21,7 @@ footer {
 
 .carousel-inner .carousel-item img {
     height: 100%;
-    width: 98%;
+    width: 98%!important;
     max-height: 500px;
     max-width: 97%;
     object-fit: cover;
@@ -34,4 +34,5 @@ footer {
 
 .item {
     overflow: hidden;
+    width: 100%;
 }
